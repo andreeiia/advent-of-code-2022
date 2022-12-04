@@ -1,0 +1,14 @@
+def camp():
+    f = open("text.txt")
+    fully_contain = 0
+    for i in f:
+        if i != "\n" and i!= " ":
+            a, b = i.split(',',1)
+            left1, right1 = a.split('-',1)
+            left2, right2 = b.split('-',1)
+            if int(left1)>= int(left2) and int(right1) <= int(right2):
+                fully_contain +=1
+            elif int(left1)<= int(left2) and int(right1) >= int(right2):
+                fully_contain +=1
+    print(fully_contain)
+camp()
