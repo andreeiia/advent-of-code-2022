@@ -1,0 +1,15 @@
+# part 1
+def reorganization ():
+    f = open ("text.txt")
+    value = 0
+    for i in f:
+        if i != "\n":
+            firstpart = i[0:len(i)//2]
+            secondpart = i[len(i)//2:-1]
+            aa = list(set(firstpart) & set(secondpart))
+            if aa[0].isupper() == True:
+                value = value + ord(aa[0]) - 38
+            elif aa[0].islower() == True:
+                value = value + ord(aa[0]) - 96
+    print (value)
+reorganization()
