@@ -1,0 +1,30 @@
+# part 2
+def badge():
+    f = open("text.txt")
+    ok = 3
+    sum = 0
+    for i in f:
+        if i != "\n" and i != " ":
+            if ok == 3:
+                first_elf = i
+                ok = ok - 1
+            elif ok == 2:
+                second_elf = i
+                ok = ok-1
+            elif ok == 1:
+                third_elf = i
+                ok = ok - 1
+        if ok == 0:
+            value = 0
+            a = list(set(first_elf) & set(second_elf) & set(third_elf))
+            a.remove("\n")
+            print(a)
+            if a[0].isupper() == True and a[0] != "\n":
+                value = value + ord(a[0]) - 38
+                sum = sum + value
+            elif a[0].islower() == True and a[0] != "\n":
+                value = value + ord(a[0]) - 96
+                sum = sum + value
+            ok = 3
+    print(sum)
+badge()
